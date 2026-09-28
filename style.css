@@ -1,216 +1,611 @@
-body {
-    background-color: #f5f5f5;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding-top: 120px;
-    margin: 0;
+/* =====================================================
+   TEMA – ändra ALLT utseende här, längst upp.
+   Resten av filen behöver du normalt aldrig röra.
+   ===================================================== */
+
+/* EGNA TYPSNITT: för att aktivera, radera raden "START-AVSTÄNGD" och raden "SLUT-AVSTÄNGD" nedan. */
+/* START-AVSTÄNGD
+@font-face {
+    font-family: 'Neue Haas Grotesk';
+    src: url('fonts/NeueHaasGrotText-55Roman-Trial.otf') format('opentype');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Neue Haas Grotesk';
+    src: url('fonts/NeueHaasGrotText-65Medium-Trial.otf') format('opentype');
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'Neue Haas Grotesk';
+    src: url('fonts/NeueHaasGrotText-75Bold-Trial.otf') format('opentype');
+    font-weight: 700;
+}
+SLUT-AVSTÄNGD */
+
+:root {
+    /* TYPSNITT (byt till 'Neue Haas Grotesk', Arial, sans-serif och 500/700) */
+    --font: 'Inter', Arial, sans-serif;
+    --weight-medium: 600;
+    --weight-bold: 800;
+
+    /* STORLEKAR */
+    --h1-size: 76px;
+    --h1-size-mobile: 44px;
+    --h2-size: 44px;
+    --text-size: 20px;
+    --small-text-size: 17px;
+    --button-size: 18px;
+
+    /* AVSTÅND OCH FORM */
+    --section-padding: 160px 100px;
+    --section-padding-mobile: 90px 32px;
+    --radius: 16px;
+    --button-radius: 12px;
+
+    /* ALLMÄNNA FÄRGER */
+    --accent: #4f46e5;          /* knappar, siffror, logotyp, hover-länkar */
+    --accent-hover: #4338ca;    /* knappar när man pekar på dem */
+    --button-text: #ffffff;
+    --border: #e6e2ee;
+    --page-bg: #fbfaf8;
+
+    /* KORT (tjänster och omdömen) */
+    --card-bg: #ffffff;
+    --card-heading: #0f172a;
+    --card-text: #64748b;
+
+    /* NAVIGATION */
+    --nav-bg: rgba(251, 250, 248, 0.85);
+    --nav-text: #0f172a;
+    --nav-menu-bg: #fbfaf8;     /* mobilmenyn */
+
+    /* SEKTIONER: bakgrund, rubrikfärg, textfärg */
+    --hero-bg: linear-gradient(160deg, #f3f0ff 0%, #eaf1fb 55%, #f7f3ec 100%);
+    --hero-heading: #0f172a;
+    --hero-text: #64748b;
+
+    --services-bg: #f6f3ee;
+    --services-heading: #0f172a;
+    --services-text: #64748b;
+
+    --process-bg: #eef1f7;
+    --process-heading: #0f172a;
+    --process-text: #64748b;
+
+    --testimonials-bg: #f3efe8;
+    --testimonials-heading: #0f172a;
+    --testimonials-text: #64748b;
+
+    --faq-bg: #f1f4f8;
+    --faq-heading: #0f172a;
+    --faq-text: #64748b;
+
+    --contact-bg: #efeaf5;
+    --contact-heading: #0f172a;
+    --contact-text: #64748b;
+
+    --footer-bg: #0f172a;
+    --footer-text: #ffffff;
+
+    /* Highlight-ord i rubriken (<span class="highlight">) */
+    --highlight: #4f46e5;
+
+    /* RUTOR: färgade paneler ovanpå sektionsbakgrunden */
+    --hero-panel: rgba(255, 255, 255, 0.55);
+    --services-panel: #ebe7f6;
+    --process-panel: rgba(255, 255, 255, 0.7);
+    --testimonials-panel: #e6ece7;
+    --faq-panel: #f7f2ea;
+    --contact-panel: #fbf8f3;
+    --panel-radius: 32px;
+    --panel-inset: 30px 40px;   /* avstånd från sektionens kant: upp/ned vänster/höger */
 }
 
+/* =====================================================
+   GRUND
+   ===================================================== */
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: var(--font);
+    background-color: var(--page-bg);
+    text-align: center;
+}
+
+h1, h2, h3 { font-weight: var(--weight-bold); }
+
 h1 {
-    font-size: 60px;
-    color: #111111;
-    max-width: 800px;
-    margin: 0 auto 25px;
-    line-height: 1.1;
+    font-size: var(--h1-size);
+    letter-spacing: -2px;
+    max-width: 900px;
+    margin: 0 auto 32px;
+    line-height: 1.06;
 }
 
 p {
-    font-size: 20px;
-    color: #555555;
+    font-size: var(--text-size);
     max-width: 600px;
     margin: 0 auto 35px;
-    line-height: 1.6;
+    line-height: 1.75;
 }
 
-button {
-    background-color: #111111;
-    color: white;
-    border: none;
-    padding: 16px 32px;
-    font-size: 18px;
-    border-radius: 8px;
-    cursor: pointer;
-}
+.highlight { color: var(--highlight); }
 
-button:hover {
-    background-color: #333333;
-}
-
+button,
 .button {
     display: inline-block;
-    background-color: #111111;
-    color: white;
+    background-color: var(--accent);
+    color: var(--button-text);
+    border: none;
+    padding: 18px 40px;
+    font-family: inherit;
+    font-size: var(--button-size);
+    font-weight: var(--weight-medium);
+    border-radius: var(--button-radius);
     text-decoration: none;
-    padding: 16px 32px;
-    font-size: 18px;
-    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.25s, background-color 0.25s;
 }
 
+button:hover,
 .button:hover {
-    background-color: #333333;
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
 }
 
-/* FORM */
-
-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    margin: 40px auto 0;
-    text-align: left;
-}
-
-label {
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-input,
-textarea {
-    padding: 14px;
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    border: 1px solid #cccccc;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-input:focus,
-textarea:focus {
-    outline: none;
-    border-color: #111111;
-}
-
-#form-message {
-    margin-top: 20px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.error {
-    color: #d93025;
-    font-size: 14px;
-    margin-top: -14px;
-    margin-bottom: 16px;
-    min-height: 0;
-}
-
-input.invalid,
-textarea.invalid {
-    border-color: #d93025;
-}
-
-/* DESIGN-PASS */
-
-:root {
-    --accent: #4f46e5;
-    --dark: #0f172a;
-    --muted: #64748b;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Inter', Arial, sans-serif;
-    color: var(--dark);
-    background-color: white;
-}
+/* =====================================================
+   NAVIGATION
+   ===================================================== */
 
 nav {
     position: sticky;
     top: 0;
     z-index: 10;
-    background-color: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 72px;
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
 }
+
+.logo {
+    font-weight: var(--weight-bold);
+    font-size: 22px;
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    color: var(--nav-text);
+    text-decoration: none;
+    font-weight: var(--weight-medium);
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+.menu-toggle {
+    display: none;
+    background: none;
+    color: var(--nav-text);
+    font-size: 28px;
+    padding: 0 8px;
+}
+
+.menu-toggle:hover {
+    background: none;
+    transform: none;
+}
+
+/* =====================================================
+   SEKTIONER (layout + färger från TEMA)
+   ===================================================== */
 
 .hero {
-    background: linear-gradient(135deg, #eef2ff, #faf5ff);
-    padding: 140px 20px;
+    min-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 24px;
 }
 
-h1 {
-    font-weight: 800;
-    letter-spacing: -1.5px;
+.services,
+.process,
+.testimonials,
+.faq,
+.contact { padding: var(--section-padding); }
+
+.services h2,
+.process h2,
+.testimonials h2,
+.faq h2 {
+    font-size: var(--h2-size);
+    margin: 0 0 80px;
 }
 
-.hero p,
-.service-card p,
-.contact p {
-    color: var(--muted);
+.contact h2 {
+    font-size: var(--h2-size);
+    margin: 0 0 20px;
 }
 
-button,
-.button {
-    background-color: var(--accent);
-    font-family: inherit;
-    font-weight: 600;
-    border-radius: 10px;
-    transition: transform 0.2s, background-color 0.2s;
-}
+.hero h1, .hero h2, .hero h3 { color: var(--hero-heading); }
+.hero p { color: var(--hero-text); max-width: 520px; margin-bottom: 52px; }
 
-button:hover,
-.button:hover {
-    background-color: #4338ca;
-    transform: translateY(-2px);
-}
+.services h2, .services h3 { color: var(--services-heading); }
+.services p { color: var(--services-text); }
 
-input,
-textarea {
-    font-family: inherit;
-}
+.process h2, .process h3 { color: var(--process-heading); }
+.process p { color: var(--process-text); }
 
-input:focus,
-textarea:focus {
-    border-color: var(--accent);
-}
+.testimonials h2 { color: var(--testimonials-heading); }
+.testimonials p { color: var(--testimonials-text); }
 
-.services {
-    background-color: #f8fafc;
-}
+.faq h2 { color: var(--faq-heading); }
 
-.service-container {
+.contact h2, .contact label { color: var(--contact-heading); }
+.contact p { color: var(--contact-text); margin-bottom: 0; }
+
+.hero { --section-bg: var(--hero-bg); --panel-color: var(--hero-panel); }
+.services { --section-bg: var(--services-bg); --panel-color: var(--services-panel); }
+.process { --section-bg: var(--process-bg); --panel-color: var(--process-panel); }
+.testimonials { --section-bg: var(--testimonials-bg); --panel-color: var(--testimonials-panel); }
+.faq { --section-bg: var(--faq-bg); --panel-color: var(--faq-panel); }
+.contact { --section-bg: var(--contact-bg); --panel-color: var(--contact-panel); }
+
+/* Variation: rutorna startar lite olika */
+.hero { --panel-from: translateY(40px) scale(0.97); }
+.process { --panel-from: translateY(70px) scale(0.92); }
+.testimonials { --panel-from: translateY(50px) scale(0.96); }
+.contact { --panel-from: translateY(90px) scale(0.95); }
+
+/* Tjänster, steg, omdömen */
+
+.service-container,
+.steps,
+.testimonial-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
     flex-wrap: wrap;
 }
 
+.steps { gap: 70px; }
+
+.service-card,
+.testimonial {
+    box-sizing: border-box;
+    flex: 1 1 280px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 44px 40px;
+    text-align: left;
+    max-width: 330px;
+    box-shadow: 0 6px 24px rgba(15, 23, 42, 0.05);
+}
+
+.testimonial { max-width: 440px; flex-basis: 320px; }
+
 .service-card {
-    background-color: white;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.25s, box-shadow 0.25s;
 }
 
 .service-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
 }
 
-/* MOBIL */
+.service-card h3,
+.testimonial strong { color: var(--card-heading); }
+
+.service-card h3,
+.step h3 { margin-top: 0; }
+
+.service-card h3 { margin-bottom: 16px; }
+
+.service-card p,
+.testimonial p { color: var(--card-text); }
+
+.service-card p,
+.step p,
+.testimonial p {
+    font-size: var(--small-text-size);
+    margin: 0 0 20px;
+}
+
+.service-card p { margin-bottom: 0; }
+
+.step { max-width: 280px; }
+
+.step-number {
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    color: var(--button-text);
+    font-weight: var(--weight-bold);
+    font-size: 22px;
+}
+
+/* FAQ */
+
+.faq-item {
+    max-width: 760px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    color: var(--faq-heading);
+    text-align: left;
+    padding: 30px 0;
+    font-size: var(--button-size);
+    border-radius: 0;
+}
+
+.faq-question:hover {
+    background: none;
+    transform: none;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s;
+}
+
+.faq-answer p {
+    margin: 0 0 28px;
+    color: var(--faq-text);
+}
+
+.faq-item.open .faq-answer { max-height: 200px; }
+
+/* Formulär */
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 520px;
+    margin: 64px auto 0;
+    text-align: left;
+}
+
+label {
+    font-weight: var(--weight-medium);
+    margin-bottom: 10px;
+}
+
+input,
+textarea {
+    padding: 16px;
+    font-size: 16px;
+    font-family: inherit;
+    border: 1px solid #d9d4e3;
+    border-radius: 10px;
+    margin-bottom: 24px;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+input.invalid,
+textarea.invalid { border-color: #d93025; }
+
+.error {
+    color: #d93025;
+    font-size: 14px;
+    margin-top: -18px;
+    margin-bottom: 20px;
+}
+
+#form-message {
+    margin-top: 24px;
+    font-weight: var(--weight-medium);
+    text-align: center;
+}
+
+/* Footer */
+
+.footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 80px 24px;
+}
+
+.footer p {
+    color: var(--footer-text);
+    font-size: var(--small-text-size);
+    margin: 0 auto 14px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 28px;
+}
+
+.footer-links a { color: var(--footer-text); }
+
+/* =====================================================
+   BAKGRUNDER + RUTOR + SCROLL-ANIMATIONER
+   Lager i varje sektion: bakgrund (::after) och ruta (::before).
+   Färgerna ändrar du i TEMA högst upp.
+   ===================================================== */
+
+:is(.hero, .services, .process, .testimonials, .faq, .contact) {
+    position: relative;
+    isolation: isolate;
+}
+
+:is(.hero, .services, .process, .testimonials, .faq, .contact)::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background: var(--section-bg);
+}
+
+:is(.hero, .services, .process, .testimonials, .faq, .contact)::before {
+    content: "";
+    position: absolute;
+    inset: var(--panel-inset);
+    z-index: -1;
+    background: var(--panel-color);
+    border-radius: var(--panel-radius);
+}
+
+/* Hero-bakgrunden glider mycket långsamt */
+.hero::after {
+    background-size: 180% 180%;
+    animation: drift 24s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+    from { background-position: 0% 0%; }
+    to   { background-position: 100% 100%; }
+}
+
+/* Dolt utgångsläge – gäller bara om JavaScript körs */
+.js :is(.hero, .services, .process, .testimonials, .faq, .contact)::after {
+    opacity: 0;
+    transition: opacity 1.4s ease;
+}
+
+.js :is(.hero, .services, .process, .testimonials, .faq, .contact)::before {
+    opacity: 0;
+    transform: var(--panel-from, translateY(70px) scale(0.94));
+    transition: opacity 1s ease 0.15s, transform 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+}
+
+.js :is(.hero, .services, .process, .testimonials, .faq, .contact).in-view::after { opacity: 1; }
+
+.js :is(.hero, .services, .process, .testimonials, .faq, .contact).is-visible::before {
+    opacity: 1;
+    transform: none;
+}
+
+/* Innehåll: tonas in med lätt oskärpa och glider upp, i tur och ordning */
+.js .reveal {
+    opacity: 0;
+    translate: var(--tx, 0px) var(--ty, 44px);
+    scale: var(--sc, 1);
+    filter: blur(3px);
+    transition: opacity 0.5s ease, translate 0.5s ease, scale 0.5s ease, filter 0.5s ease,
+                transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Variation: olika startlägen för olika delar (tx = i sidled, ty = uppifrån, sc = storlek) */
+.js .hero h1 { --ty: 30px; --sc: 0.94; }
+.js .hero .button { --ty: 20px; --sc: 0.9; }
+.js section > h2 { --ty: 30px; }
+.js .service-card { --ty: 56px; }
+.js .step { --ty: 24px; --sc: 0.9; }
+.js .testimonial:nth-child(odd) { --tx: -50px; --ty: 0px; }
+.js .testimonial:nth-child(even) { --tx: 50px; --ty: 0px; }
+.js .faq-item { --tx: -40px; --ty: 0px; }
+.js .contact form { --ty: 60px; }
+
+.js .reveal.is-visible {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+    filter: none;
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0s),
+                translate 1.1s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0s),
+                scale 1.1s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0s),
+                filter 1s ease var(--d, 0s),
+                transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Stegnumren "poppar" fram efter sitt steg */
+.js .step .step-number {
+    transform: scale(0.5);
+    transition: transform 0.4s ease;
+}
+
+.js .step.is-visible .step-number {
+    transform: none;
+    transition: transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) calc(var(--d, 0s) + 0.3s);
+}
+
+/* Ingen animation för dem som stängt av rörelse i sitt system */
+@media (prefers-reduced-motion: reduce) {
+    .hero::after { animation: none; }
+
+    .js :is(.hero, .services, .process, .testimonials, .faq, .contact)::before,
+    .js :is(.hero, .services, .process, .testimonials, .faq, .contact)::after,
+    .js .reveal,
+    .js .reveal.is-visible,
+    .js .step .step-number {
+        opacity: 1;
+        translate: none;
+        scale: none;
+        transform: none;
+        filter: none;
+        transition: none;
+    }
+}
+
+/* =====================================================
+   MOBIL (skärmar under 768 px)
+   ===================================================== */
 
 @media (max-width: 768px) {
-    nav {
-        padding: 20px;
-    }
+    :root { --panel-inset: 10px 6px; }
 
-    h1 {
-        font-size: 36px;
-    }
+    nav { padding: 20px 24px; }
 
-    .hero {
-        padding: 80px 20px;
-    }
+    h1 { font-size: var(--h1-size-mobile); letter-spacing: -1px; }
+
+    .hero { min-height: 80vh; padding: 90px 24px; }
+
+    .services h2,
+    .process h2,
+    .testimonials h2,
+    .faq h2 { margin-bottom: 56px; }
 
     .services,
-    .contact {
-        padding: 60px 20px;
-    }
+    .process,
+    .testimonials,
+    .faq,
+    .contact { padding: var(--section-padding-mobile); }
 
-    .service-container {
+    .service-container { flex-direction: column; align-items: center; }
+
+    .steps { gap: 48px; }
+
+    .menu-toggle { display: block; }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
         flex-direction: column;
-        align-items: center;
+        gap: 24px;
+        padding: 28px 24px;
+        background-color: var(--nav-menu-bg);
+        border-bottom: 1px solid var(--border);
     }
-}
 
+    .nav-links.open { display: flex; }
+}
