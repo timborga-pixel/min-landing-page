@@ -1,0 +1,216 @@
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 120px;
+    margin: 0;
+}
+
+h1 {
+    font-size: 60px;
+    color: #111111;
+    max-width: 800px;
+    margin: 0 auto 25px;
+    line-height: 1.1;
+}
+
+p {
+    font-size: 20px;
+    color: #555555;
+    max-width: 600px;
+    margin: 0 auto 35px;
+    line-height: 1.6;
+}
+
+button {
+    background-color: #111111;
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #333333;
+}
+
+.button {
+    display: inline-block;
+    background-color: #111111;
+    color: white;
+    text-decoration: none;
+    padding: 16px 32px;
+    font-size: 18px;
+    border-radius: 8px;
+}
+
+.button:hover {
+    background-color: #333333;
+}
+
+/* FORM */
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 40px auto 0;
+    text-align: left;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+input,
+textarea {
+    padding: 14px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #111111;
+}
+
+#form-message {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.error {
+    color: #d93025;
+    font-size: 14px;
+    margin-top: -14px;
+    margin-bottom: 16px;
+    min-height: 0;
+}
+
+input.invalid,
+textarea.invalid {
+    border-color: #d93025;
+}
+
+/* DESIGN-PASS */
+
+:root {
+    --accent: #4f46e5;
+    --dark: #0f172a;
+    --muted: #64748b;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    color: var(--dark);
+    background-color: white;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.hero {
+    background: linear-gradient(135deg, #eef2ff, #faf5ff);
+    padding: 140px 20px;
+}
+
+h1 {
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+.hero p,
+.service-card p,
+.contact p {
+    color: var(--muted);
+}
+
+button,
+.button {
+    background-color: var(--accent);
+    font-family: inherit;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+button:hover,
+.button:hover {
+    background-color: #4338ca;
+    transform: translateY(-2px);
+}
+
+input,
+textarea {
+    font-family: inherit;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--accent);
+}
+
+.services {
+    background-color: #f8fafc;
+}
+
+.service-container {
+    flex-wrap: wrap;
+}
+
+.service-card {
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+}
+
+/* MOBIL */
+
+@media (max-width: 768px) {
+    nav {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    .hero {
+        padding: 80px 20px;
+    }
+
+    .services,
+    .contact {
+        padding: 60px 20px;
+    }
+
+    .service-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+

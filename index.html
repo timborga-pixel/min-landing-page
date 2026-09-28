@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Digital Growth</title>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">Digital Growth</div>
+
+        <div class="nav-links">
+            <a href="#tjanster">Tjänster</a>
+            <a href="#kontakt">Kontakt</a>
+        </div>
+    </nav>
+
+
+    <section class="hero">
+
+        <h1>Vi hjälper företag att växa online 🚀</h1>
+
+        <p>
+            Digital marknadsföring som ger fler kunder,
+            mer försäljning och bättre resultat.
+        </p>
+
+        <a href="#kontakt" class="button">Kontakta oss</a>
+
+    </section>
+
+
+    <section id="tjanster" class="services">
+
+        <h2>Vad vi gör</h2>
+
+        <div class="service-container">
+
+            <div class="service-card">
+                <h3>Google Ads</h3>
+                <p>
+                    Vi hjälper företag att synas när kunderna
+                    faktiskt söker efter deras tjänster.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>Sociala medier</h3>
+                <p>
+                    Strategier och annonsering som når rätt
+                    människor och skapar nya kunder.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <h3>Landningssidor</h3>
+                <p>
+                    Snabba och snygga sidor byggda för att
+                    omvandla besökare till kunder.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="kontakt" class="contact">
+
+    <h2>Redo att växa?</h2>
+
+    <p>
+        Fyll i formuläret så berättar vi hur vi kan hjälpa ditt företag.
+    </p>
+
+<form id="contact-form" novalidate>
+
+<label for="name">Namn</label>
+<input type="text" id="name" name="name" placeholder="Ditt namn">
+<span class="error" id="name-error"></span>
+
+<label for="email">E-post</label>
+<input type="email" id="email" name="email" placeholder="din@epost.se">
+<span class="error" id="email-error"></span>
+
+<label for="message">Meddelande</label>
+<textarea id="message" name="message" rows="5" placeholder="Berätta om ditt projekt"></textarea>
+<span class="error" id="message-error"></span>
+
+        <button type="submit">Skicka</button>
+
+        <p id="form-message"></p>
+
+    </form>
+
+</section>
+<script src="script.js"></script>
+</body>
+
+</html>
