@@ -117,16 +117,7 @@ footer{padding:56px 0;text-align:center;font-size:15px;color:var(--mut)}
 footer a{text-decoration:none}footer a:hover{color:var(--ink)}
 
 /* ===== 3D + INTERAKTION ===== */
-.scene{position:absolute;inset:0;perspective:1100px;pointer-events:none}
-.orbit{position:absolute;left:50%;top:44%;width:min(640px,88vw);aspect-ratio:1;transform:translate(-50%,-50%);transform-style:preserve-3d;opacity:.5}
-.orbit i{position:absolute;inset:0;border:1px solid rgba(251,246,238,.45);border-radius:50%}
-.orbit i::after{content:"";position:absolute;left:50%;top:-4px;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:#fbf6ee;opacity:.7}
-.orbit i:nth-child(1){animation:r1 40s linear infinite}
-.orbit i:nth-child(2){inset:13%;animation:r2 32s linear infinite}
-.orbit i:nth-child(3){inset:27%;animation:r3 26s linear infinite}
-@keyframes r1{from{transform:rotateX(72deg) rotateZ(0)}to{transform:rotateX(72deg) rotateZ(360deg)}}
-@keyframes r2{from{transform:rotateY(72deg) rotateZ(0)}to{transform:rotateY(72deg) rotateZ(-360deg)}}
-@keyframes r3{from{transform:rotateX(35deg) rotateY(35deg) rotateZ(0)}to{transform:rotateX(35deg) rotateY(35deg) rotateZ(360deg)}}
+.neural{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
 .cur{position:absolute;left:0;top:0;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(246,234,219,.2),transparent 65%);pointer-events:none;opacity:0;transition:opacity .6s}
 .card .num{transform:translateZ(36px)}.card h3{transform:translateZ(24px)}.card p{transform:translateZ(12px)}
 .step{perspective:600px}
@@ -139,7 +130,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
 /* ===== SCROLL-ANIMATION ===== */
 .js .rv{opacity:0;transform:perspective(900px) translateY(34px) rotateX(9deg);transition:opacity .9s ease var(--d,0s),transform .9s cubic-bezier(.16,1,.3,1) var(--d,0s)}
 .js .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.lava i,.glow svg,.orbit i{animation:none}}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.lava i,.glow svg{animation:none}}
 
 /* ===== MOBIL ===== */
 @media (max-width:860px){
@@ -183,10 +174,9 @@ footer a{text-decoration:none}footer a:hover{color:var(--ink)}
     <path d="M-50 190 C250 250 430 380 620 380 C850 380 1000 250 1250 40" fill="none" stroke="url(#st)" stroke-width="6" filter="url(#bl)" vector-effect="non-scaling-stroke"/>
     <path d="M-50 190 C250 250 430 380 620 380 C850 380 1000 250 1250 40" fill="none" stroke="url(#st)" stroke-width="2" vector-effect="non-scaling-stroke"/>
   </svg></div>
-  <div class="scene" aria-hidden="true"><div class="orbit"><i></i><i></i><i></i></div></div>
+  <canvas class="neural" aria-hidden="true"></canvas>
   <i class="cur" aria-hidden="true"></i>
   <div class="wrap">
-    <span class="eyebrow">Digital marknadsföring</span>
     <h1>Syns när det räknas.</h1>
     <p class="sub">Ingenium Marketing hjälper företag att växa online med Google Ads, sociala medier och landningssidor som konverterar.</p>
     <a href="#kontakt" class="btn">Kontakta oss</a>
@@ -286,14 +276,13 @@ if(mouse&&!reduce){
     el.addEventListener("mousemove",function(e){var r=el.getBoundingClientRect();el.style.translate=((e.clientX-r.left-r.width/2)*.25)+"px "+((e.clientY-r.top-r.height/2)*.35)+"px"});
     el.addEventListener("mouseleave",function(){el.style.translate=""});
   });
-  var hero=document.querySelector(".hero"),orbit=hero.querySelector(".orbit"),glow=hero.querySelector(".glow"),hw=hero.querySelector(".wrap"),cur=hero.querySelector(".cur");
+  var hero=document.querySelector(".hero"),glow=hero.querySelector(".glow"),hw=hero.querySelector(".wrap"),cur=hero.querySelector(".cur");
   var px=0,py=0,sx=0,sy=0,cx=0,cy=0,qx=0,qy=0;
   hero.addEventListener("mousemove",function(e){var r=hero.getBoundingClientRect();px=(e.clientX-r.left)/r.width-.5;py=(e.clientY-r.top)/r.height-.5;cx=e.clientX-r.left;cy=e.clientY-r.top;cur.style.opacity=1});
   hero.addEventListener("mouseleave",function(){px=0;py=0;cur.style.opacity=0});
   (function tick(){
     sx+=(px-sx)*.06;sy+=(py-sy)*.06;qx+=(cx-qx)*.1;qy+=(cy-qy)*.1;
     var sc=Math.min(scrollY,800);
-    orbit.style.transform="translate(-50%,-50%) rotateX("+(-sy*24)+"deg) rotateY("+(sx*28)+"deg)";
     glow.style.transform="translate3d("+(sx*-26)+"px,"+(sy*-12)+"px,0)";
     hw.style.transform="translate3d("+(sx*10)+"px,"+(sy*8+sc*.12)+"px,0)";
     hw.style.opacity=Math.max(0,1-sc/900);
@@ -301,6 +290,95 @@ if(mouse&&!reduce){
     requestAnimationFrame(tick);
   })();
 }
+
+// Neurosignaler: ett nätverk i hjärnform som tänder upp när signaler passerar
+(function(){
+  var hero=document.querySelector(".hero"),cv=hero.querySelector(".neural"),ctx=cv.getContext("2d");
+  var still=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var W=0,H=0,F=1,nodes=[],edges=[],adj=[],pulses=[],vis=true,raf=0,last=0,spawnAt=0,hoverAt=0,mx=-999,my=-999,tgx=0,tgy=0,gx=0,gy=0,timer;
+  function brain(u,v){var l=(u+.47)/.52,r=(u-.47)/.52,y=v/.82;return Math.abs(u)>.04&&(l*l+y*y<1||r*r+y*y<1)}
+  function build(){
+    var r=hero.getBoundingClientRect(),d=Math.min(window.devicePixelRatio||1,2);
+    W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);F=W*1.1;
+    var n=Math.round(Math.min(110,Math.max(45,W*H/12000)));
+    nodes=[];edges=[];adj=[];pulses=[];
+    while(nodes.length<n){
+      var u=Math.random()*2-1,v=Math.random()*2-1;
+      if(nodes.length>n*.8||brain(u,v))nodes.push({x:u*W*.47,y:v*H*.46,z:(Math.random()-.5)*W*.35,ch:0});
+    }
+    var seen={},lim=W*.22;
+    nodes.forEach(function(a,i){
+      adj[i]=adj[i]||[];
+      nodes.map(function(b,j){return {j:j,d:Math.pow(a.x-b.x,2)+Math.pow(a.y-b.y,2)+Math.pow(a.z-b.z,2)}})
+        .sort(function(p,q){return p.d-q.d}).slice(1,4).forEach(function(o){
+          if(o.d>lim*lim)return;
+          var k=i<o.j?i+"-"+o.j:o.j+"-"+i;if(seen[k])return;seen[k]=1;
+          edges.push([i,o.j]);adj[i].push(o.j);(adj[o.j]=adj[o.j]||[]).push(i);
+        });
+    });
+    draw(0);
+  }
+  function project(a,b){
+    var ca=Math.cos(a),sa=Math.sin(a),cb=Math.cos(b),sb=Math.sin(b);
+    nodes.forEach(function(n){
+      var x=n.x*ca+n.z*sa,z=-n.x*sa+n.z*ca,y=n.y*cb-z*sb,z2=n.y*sb+z*cb,s=F/(F+z2);
+      n.px=W/2+x*s;n.py=H/2+y*s;n.k=Math.max(0,Math.min(1,(s-.8)/.4));
+    });
+  }
+  function draw(tt){
+    project(still?0:Math.sin(tt*.00018)*.35+gx*.5,gy*.3);
+    ctx.clearRect(0,0,W,H);ctx.lineWidth=1;
+    edges.forEach(function(e){
+      var p=nodes[e[0]],q=nodes[e[1]],al=.035+.05*(p.k+q.k)/2+.12*Math.max(p.ch,q.ch);
+      ctx.strokeStyle="rgba(251,246,238,"+al+")";ctx.beginPath();ctx.moveTo(p.px,p.py);ctx.lineTo(q.px,q.py);ctx.stroke();
+    });
+    nodes.forEach(function(n){
+      var r=1.2+1.6*n.k+3.5*n.ch;
+      ctx.fillStyle=n.ch>.05?"rgba(255,238,214,"+(.15+.75*n.ch)+")":"rgba(251,246,238,"+(.12+.2*n.k)+")";
+      ctx.beginPath();ctx.arc(n.px,n.py,r,0,6.2832);ctx.fill();
+      if(n.ch>.08){ctx.strokeStyle="rgba(255,238,214,"+(.45*n.ch)+")";ctx.beginPath();ctx.arc(n.px,n.py,r+4+(1-n.ch)*12,0,6.2832);ctx.stroke()}
+    });
+    pulses.forEach(function(p){
+      var A=nodes[p.a],B=nodes[p.b],t0=Math.max(0,p.t-.12),
+          x=A.px+(B.px-A.px)*p.t,y=A.py+(B.py-A.py)*p.t,x0=A.px+(B.px-A.px)*t0,y0=A.py+(B.py-A.py)*t0;
+      ctx.strokeStyle="rgba(255,240,220,.22)";ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(x0,y0);ctx.lineTo(x,y);ctx.stroke();ctx.lineWidth=1;
+      ctx.fillStyle="rgba(255,246,234,.45)";ctx.beginPath();ctx.arc(x,y,1.7,0,6.2832);ctx.fill();
+    });
+  }
+  function spawn(a,g,ex){
+    var l=(adj[a]||[]).filter(function(j){return j!==ex});if(!l.length)l=adj[a]||[];
+    if(!l.length||pulses.length>14)return;
+    pulses.push({a:a,b:l[Math.floor(Math.random()*l.length)],t:0,sp:.0014+Math.random()*.001,g:g});
+  }
+  function step(now,dt){
+    if(now>spawnAt){spawnAt=now+1100+Math.random()*1300;var s=Math.floor(Math.random()*nodes.length);nodes[s].ch=1;spawn(s,0)}
+    var cur=pulses;pulses=[];
+    cur.forEach(function(p){
+      p.t+=p.sp*dt;
+      if(p.t<1){pulses.push(p);return}
+      nodes[p.b].ch=.85;
+      if(p.g<3&&Math.random()<.6-.18*p.g)spawn(p.b,p.g+1,p.a);
+    });
+    nodes.forEach(function(n,i){
+      n.ch=Math.max(0,n.ch-dt*.0016);
+      if(mx>-900){var dx=n.px-mx,dy=n.py-my;if(dx*dx+dy*dy<6400){n.ch=Math.max(n.ch,.35);if(now>hoverAt&&Math.random()<.02){hoverAt=now+500;spawn(i,2)}}}
+    });
+  }
+  function loop(now){
+    raf=0;if(!vis)return;
+    var dt=Math.min(50,now-last||16);last=now;
+    gx+=(tgx-gx)*.05;gy+=(tgy-gy)*.05;
+    step(now,dt);draw(now);
+    raf=requestAnimationFrame(loop);
+  }
+  build();
+  new ResizeObserver(function(){clearTimeout(timer);timer=setTimeout(build,150)}).observe(hero);
+  if(still)return;
+  hero.addEventListener("mousemove",function(e){var r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;tgx=mx/W-.5;tgy=my/H-.5});
+  hero.addEventListener("mouseleave",function(){mx=-999;my=-999;tgx=0;tgy=0});
+  new IntersectionObserver(function(es){vis=es[0].isIntersecting;if(vis&&!raf)raf=requestAnimationFrame(loop)}).observe(hero);
+  raf=requestAnimationFrame(loop);
+})();
 
 // Formulär
 var form=document.getElementById("contact-form"),msg=document.getElementById("form-message");
