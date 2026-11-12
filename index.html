@@ -5,87 +5,76 @@
 <title>Ingenium Marketing</title>
 <meta name="description" content="Ingenium Marketing hjälper företag att växa online med Google Ads, sociala medier och landningssidor som konverterar.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌙</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2236%22 fill=%22%234b3fe0%22/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add("js")</script>
 <style>
-/* ===== TEMA: ändra färger här ===== */
+/* ===== TEMA: ändra färger och typsnitt här ===== */
 :root{
-  --bg:#0a0d18; --ink:#eceaf2; --mut:#9b9fb5; --glow:#f0c9a4;
-  --glass:rgba(255,255,255,.045); --line:rgba(255,255,255,.12);
-  --font:'Inter',Arial,sans-serif;
+  --bg:#f7f5f1; --ink:#14151a; --mut:#6b6e78; --line:rgba(20,21,26,.12);
+  --acc:#4b3fe0; --card:#ffffff;
+  --font:'Inter',Arial,sans-serif; --serif:'Instrument Serif',Georgia,serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-weight:300;font-size:18px;line-height:1.7;overflow-x:hidden}
 h1,h2,h3,p{margin:0}
-h1,h2,h3{font-weight:300;letter-spacing:-.03em;line-height:1.08}
-h2{font-size:clamp(2.2rem,5vw,3.8rem);max-width:18ch}
-em{font-style:normal;color:var(--glow)}
+h1,h2,h3{font-weight:300;letter-spacing:-.035em;line-height:1.05}
+h2{font-size:clamp(2.3rem,5vw,3.8rem);max-width:16ch}
+em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--acc);letter-spacing:-.01em}
 a{color:inherit}
 .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
-section{padding:120px 0;position:relative}
-.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut);margin-bottom:22px;font-weight:400}
-.pill{display:inline-block;border:0;cursor:pointer;font:400 15px var(--font);text-decoration:none;color:var(--ink);background:rgba(255,255,255,.09);border:1px solid var(--line);padding:9px 20px;border-radius:100px;backdrop-filter:blur(10px);transition:background .2s,color .2s}
-.pill:hover{background:rgba(255,255,255,.18)}
-.pill.solid{background:#eceaf2;color:#0a0d18;border-color:#eceaf2;font-weight:500}
-.pill.solid:hover{background:#fff}
-.pill.big{padding:16px 34px;font-size:16px}
+section{padding:110px 0}
+.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);margin-bottom:22px;font-weight:400}
+.btn{display:inline-block;border:0;cursor:pointer;font:400 15px var(--font);text-decoration:none;background:var(--ink);color:var(--bg);padding:14px 28px;border-radius:100px;transition:transform .2s,background .2s}
+.btn:hover{background:var(--acc);transform:translateY(-2px)}
+.btn.sm{padding:10px 22px;font-size:14px}
+.link{font-size:15px;text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:2px;transition:color .2s,border-color .2s}
+.link:hover{color:var(--acc);border-color:var(--acc)}
 
 /* ===== NAV ===== */
-nav{position:fixed;top:0;left:0;right:0;z-index:20;padding:22px 0}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:1280px}
-.logo{font-size:22px;font-weight:400;text-decoration:none;letter-spacing:-.02em}
-.links{display:flex;gap:8px}
-.toggle{display:none}
+nav{position:sticky;top:0;z-index:20;background:rgba(247,245,241,.8);backdrop-filter:blur(14px);border-bottom:1px solid transparent}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px;max-width:1280px}
+.logo{font-size:22px;font-weight:400;text-decoration:none;letter-spacing:-.03em}
+.links{display:flex;align-items:center;gap:34px}
+.links a:not(.btn){font-size:15px;text-decoration:none;color:var(--mut);transition:color .2s}
+.links a:not(.btn):hover{color:var(--ink)}
+.toggle{display:none;background:none;border:1px solid var(--line);border-radius:100px;padding:8px 18px;font:400 14px var(--font);color:var(--ink);cursor:pointer}
 
 /* ===== HERO ===== */
-.hero{min-height:100vh;display:flex;align-items:center;padding:140px 0 160px;overflow:hidden;
-  background:linear-gradient(180deg,#070914 0%,#141a30 35%,#2b3150 60%,#6b5a6e 82%,#c08a7a 100%)}
-.stars{position:absolute;inset:0;opacity:.8;
-  background-image:radial-gradient(1.2px 1.2px at 8% 18%,#fff,transparent),radial-gradient(1px 1px at 22% 8%,#fff,transparent),radial-gradient(1.4px 1.4px at 35% 28%,#fff,transparent),radial-gradient(1px 1px at 52% 12%,#fff,transparent),radial-gradient(1.2px 1.2px at 63% 34%,#fff,transparent),radial-gradient(1px 1px at 78% 10%,#fff,transparent),radial-gradient(1.4px 1.4px at 90% 26%,#fff,transparent),radial-gradient(1px 1px at 15% 42%,#fff,transparent),radial-gradient(1px 1px at 44% 46%,#fff,transparent),radial-gradient(1px 1px at 96% 48%,#fff,transparent)}
-.moon{position:absolute;right:12%;top:20%;width:clamp(150px,22vw,300px);aspect-ratio:1;border-radius:50%;
-  background:radial-gradient(circle at 32% 30%,#f3eef5 0%,#b9b3cc 35%,#6a6b8c 70%,#2c3150 100%);
-  box-shadow:0 0 90px rgba(240,201,164,.25);animation:float 14s ease-in-out infinite alternate}
-.ring{position:absolute;right:calc(12% - 18vw);top:calc(20% + 6vw);width:clamp(420px,58vw,820px);aspect-ratio:3.2;border:1px solid rgba(255,255,255,.45);border-radius:50%;transform:rotate(-16deg);animation:float 14s ease-in-out infinite alternate}
-@keyframes float{to{translate:0 -18px}}
-.mtn{position:absolute;left:0;bottom:-1px;width:100%;height:42%}
-.hero .wrap{position:relative;z-index:2;width:100%}
-.hero h1{font-size:clamp(2.7rem,7.2vw,6rem);max-width:13ch;font-weight:200}
-.hero .sub{max-width:460px;color:#c9c8d8;font-size:18px;margin:34px 0 38px}
-.cta{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
-.cta small{color:var(--mut);font-size:14px}
-.scroll{position:absolute;z-index:2;left:28px;bottom:36px;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--mut);display:flex;flex-direction:column;gap:10px}
-.scroll::after{content:"";width:1px;height:42px;background:linear-gradient(var(--glow),transparent)}
+.hero{position:relative;padding:110px 0 130px;overflow:hidden}
+.bg{position:absolute;inset:0;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;animation:drift 20s ease-in-out infinite alternate}
+.b1{width:480px;height:480px;right:-60px;top:-80px;background:#d9d3ff}
+.b2{width:380px;height:380px;right:16%;top:150px;background:#ffdfcc;animation-delay:-6s}
+.b3{width:320px;height:320px;left:-100px;bottom:-120px;background:#d3efe4;animation-delay:-12s}
+.bg svg{position:absolute;right:-120px;top:-160px;width:760px;height:760px;opacity:.5}
+@keyframes drift{to{transform:translate(30px,-24px) scale(1.08)}}
+.hero .wrap{position:relative}
+.hero h1{font-size:clamp(3.4rem,10.5vw,8.6rem);font-weight:300;letter-spacing:-.05em;line-height:.98;max-width:9ch}
+.hero .sub{max-width:480px;color:var(--mut);font-size:20px;margin:40px 0 40px}
+.cta{display:flex;align-items:center;gap:30px;flex-wrap:wrap}
 
-/* ===== ÄRLIGT TALAT ===== */
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:60px}
-.glass{background:var(--glass);border:1px solid var(--line);border-radius:26px;padding:38px 32px;backdrop-filter:blur(8px);transition:transform .3s,border-color .3s}
-.glass:hover{transform:translateY(-6px);border-color:rgba(240,201,164,.5)}
-.glass h3{font-size:1.5rem;margin-bottom:14px;font-weight:300}
-.glass p{color:var(--mut);font-size:16px}
-.glass .n{font-size:13px;letter-spacing:.2em;color:var(--glow);margin-bottom:46px;display:block}
+/* ===== STATEMENT ===== */
+.statement{padding:60px 0 100px}
+.statement p{font-size:clamp(1.7rem,3.8vw,3rem);line-height:1.25;letter-spacing:-.03em;max-width:24ch;max-width:30ch}
+.statement span{color:#a9abb4}
 
 /* ===== TJÄNSTER ===== */
 .rows{margin-top:56px;border-top:1px solid var(--line)}
-.row{display:grid;grid-template-columns:70px 1fr 1.4fr;gap:24px;align-items:baseline;padding:36px 0;border-bottom:1px solid var(--line);transition:padding-left .3s}
+.row{display:grid;grid-template-columns:70px 1fr 1.3fr;gap:24px;align-items:baseline;padding:38px 0;border-bottom:1px solid var(--line);transition:padding-left .3s}
 .row:hover{padding-left:14px}
-.row .n{color:var(--glow);font-size:14px;letter-spacing:.15em}
-.row h3{font-size:clamp(1.6rem,3vw,2.2rem)}
-.row p{color:var(--mut);font-size:16px}
+.row .n{color:var(--acc);font-size:14px;letter-spacing:.14em}
+.row h3{font-size:clamp(1.7rem,3.2vw,2.4rem)}
+.row p{color:var(--mut);font-size:17px}
 
 /* ===== PROCESS ===== */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:64px}
-.step{border-top:1px solid var(--glow);padding-top:24px}
-.step .big{font-size:4.5rem;font-weight:200;color:var(--glow);line-height:1;margin-bottom:20px}
-.step h3{font-size:1.5rem;margin-bottom:10px}
+.step{border-top:1px solid var(--ink);padding-top:24px}
+.step .big{font-family:var(--serif);font-style:italic;font-size:4.6rem;line-height:1;color:var(--acc);margin-bottom:18px}
+.step h3{font-size:1.6rem;margin-bottom:10px}
 .step p{color:var(--mut);font-size:16px}
-
-/* ===== REFERENS (tom plats) ===== */
-.empty{margin-top:56px;border:1px dashed rgba(240,201,164,.5);border-radius:32px;padding:72px 40px;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(240,201,164,.1),transparent 70%)}
-.empty p.q{font-size:clamp(1.6rem,3.4vw,2.6rem);font-weight:200;letter-spacing:-.02em;line-height:1.25;max-width:20ch;margin:0 auto 20px}
-.empty small{display:block;color:var(--mut);font-size:15px;margin-bottom:34px}
 
 /* ===== FAQ ===== */
 .faq .wrap{display:grid;grid-template-columns:1fr 1.5fr;gap:64px}
@@ -93,50 +82,52 @@ details{border-bottom:1px solid var(--line)}
 details:first-child{border-top:1px solid var(--line)}
 summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;font-size:1.2rem;font-weight:400}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-size:1.8rem;font-weight:200;color:var(--glow);transition:transform .25s}
+summary::after{content:"+";font-size:1.8rem;font-weight:300;color:var(--acc);transition:transform .25s}
 details[open] summary::after{transform:rotate(45deg)}
 details p{color:var(--mut);padding:0 0 26px;max-width:50ch;font-size:16px}
 
 /* ===== KONTAKT ===== */
-.contact{padding-bottom:140px;background:radial-gradient(ellipse at 50% 100%,rgba(192,138,122,.28),transparent 65%)}
-.panel{display:grid;grid-template-columns:1fr 1fr;gap:56px;background:var(--glass);border:1px solid var(--line);border-radius:36px;padding:64px 52px;backdrop-filter:blur(14px)}
-.panel .lead{color:#c9c8d8;margin-top:22px;max-width:32ch}
+.contact{padding-top:40px}
+.panel{position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:56px;background:var(--card);border:1px solid var(--line);border-radius:32px;padding:64px 52px}
+.panel::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:#d9d3ff;filter:blur(80px);opacity:.5;left:-120px;bottom:-200px;pointer-events:none}
+.panel>*{position:relative}
+.panel h2{font-size:clamp(2.6rem,5.5vw,4.4rem);max-width:8ch}
+.panel .lead{color:var(--mut);margin-top:22px;max-width:30ch}
+.panel .mail{display:inline-block;margin-top:26px;font-size:16px}
 form{display:flex;flex-direction:column}
-label{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:8px;font-weight:400}
-input,textarea{font:300 16px var(--font);color:var(--ink);padding:15px 18px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.05);margin-bottom:6px}
+label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-bottom:8px;font-weight:400}
+input,textarea{font:300 16px var(--font);color:var(--ink);padding:15px 18px;border:1px solid var(--line);border-radius:14px;background:var(--bg);margin-bottom:6px}
 textarea{resize:vertical}
-input:focus,textarea:focus{outline:none;border-color:var(--glow)}
-input.invalid,textarea.invalid{border-color:#ff8a80}
-.error{color:#ff9d94;font-size:14px;min-height:22px;margin-bottom:8px}
-form .pill{align-self:flex-start;margin-top:6px}
-#form-message{margin-top:16px;font-size:16px;color:var(--glow)}
+input:focus,textarea:focus{outline:none;border-color:var(--acc);background:#fff}
+input.invalid,textarea.invalid{border-color:#d93025}
+.error{color:#c5221f;font-size:14px;min-height:22px;margin-bottom:8px}
+form .btn{align-self:flex-start;margin-top:6px}
+#form-message{margin-top:16px;font-size:16px;color:var(--acc)}
 
 /* ===== FOOTER ===== */
-footer{border-top:1px solid var(--line);padding:48px 0;font-size:15px;color:var(--mut)}
+footer{border-top:1px solid var(--line);padding:44px 0;font-size:15px;color:var(--mut)}
 footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .flinks{display:flex;gap:26px}
-footer a{text-decoration:none}footer a:hover{color:var(--glow)}
+footer a{text-decoration:none}footer a:hover{color:var(--acc)}
 
 /* ===== SCROLL-ANIMATION ===== */
-.js .rv{opacity:0;transform:translateY(36px);transition:opacity 1s ease var(--d,0s),transform 1s cubic-bezier(.16,1,.3,1) var(--d,0s)}
+.js .rv{opacity:0;transform:translateY(30px);transition:opacity .9s ease var(--d,0s),transform .9s cubic-bezier(.16,1,.3,1) var(--d,0s)}
 .js .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.moon,.ring{animation:none}}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.blob{animation:none}}
 
 /* ===== MOBIL ===== */
 @media (max-width:860px){
-  section{padding:80px 0}
-  .toggle{display:inline-block}
-  .links{display:none;position:absolute;top:70px;left:20px;right:20px;flex-direction:column;padding:16px;background:rgba(14,18,34,.96);border:1px solid var(--line);border-radius:22px}
+  section{padding:76px 0}
+  .hero{padding:70px 0 90px}
+  .toggle{display:block}
+  .links{display:none;position:absolute;top:74px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:18px;padding:24px 28px 28px;background:var(--bg);border-bottom:1px solid var(--line)}
   .links.open{display:flex}
-  .links .pill{text-align:center}
-  .moon{right:-8%;top:12%;opacity:.55}
-  .ring{display:none}
-  .grid3,.steps,.panel,.faq .wrap{grid-template-columns:1fr}
+  .steps,.panel,.faq .wrap{grid-template-columns:1fr}
   .row{grid-template-columns:44px 1fr;gap:6px 14px}
   .row p{grid-column:2}
   .faq .wrap{gap:30px}
-  .panel{padding:40px 24px;border-radius:28px}
-  .empty{padding:52px 22px}
+  .panel{padding:40px 24px;border-radius:26px}
+  .b1{width:320px;height:320px}.bg svg{width:520px;height:520px}
 }
 </style>
 </head>
@@ -145,57 +136,44 @@ footer a{text-decoration:none}footer a:hover{color:var(--glow)}
 <nav>
   <div class="wrap">
     <a href="#" class="logo">Ingenium</a>
+    <button class="toggle" id="toggle" aria-label="Öppna meny" aria-expanded="false">Meny</button>
     <div class="links" id="links">
-      <a class="pill" href="#tjanster">Tjänster</a>
-      <a class="pill" href="#process">Så jobbar vi</a>
-      <a class="pill" href="#referenser">Referenser</a>
-      <a class="pill" href="#faq">FAQ</a>
-      <a class="pill solid" href="#kontakt" style="display:none" id="navcta-m">Kontakta oss</a>
+      <a href="#tjanster">Tjänster</a>
+      <a href="#process">Så jobbar vi</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontakt" class="btn sm">Kontakta oss</a>
     </div>
-    <a class="pill solid" href="#kontakt" id="navcta">Kontakta oss</a>
-    <button class="pill toggle" id="toggle" aria-label="Öppna meny" aria-expanded="false">Meny</button>
   </div>
 </nav>
 
 <header class="hero">
-  <div class="stars" aria-hidden="true"></div>
-  <div class="moon" aria-hidden="true"></div>
-  <div class="ring" aria-hidden="true"></div>
-  <svg class="mtn" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
-    <defs>
-      <linearGradient id="m1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3556"/><stop offset="1" stop-color="#171a30"/></linearGradient>
-      <linearGradient id="m2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a1d36"/><stop offset="1" stop-color="#0a0d18"/></linearGradient>
-    </defs>
-    <path fill="url(#m1)" d="M0 260 L130 190 L240 240 L380 140 L520 250 L650 210 L800 280 L960 170 L1100 250 L1240 190 L1440 270 L1440 400 L0 400Z"/>
-    <path fill="url(#m2)" d="M0 330 L160 280 L300 320 L470 260 L640 330 L820 290 L1000 340 L1180 290 L1320 330 L1440 300 L1440 400 L0 400Z"/>
-  </svg>
+  <div class="bg" aria-hidden="true">
+    <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+    <svg viewBox="0 0 760 760" fill="none" stroke="#14151a" stroke-opacity=".12">
+      <circle cx="380" cy="380" r="120"/><circle cx="380" cy="380" r="200"/><circle cx="380" cy="380" r="280"/><circle cx="380" cy="380" r="360"/>
+    </svg>
+  </div>
   <div class="wrap">
-    <h1>Din första framgång blir vår första <em>referens.</em></h1>
-    <p class="sub">Ingenium Marketing är nytt, och vi säger det rakt ut. Inga kundlogotyper att visa upp, bara ärligt arbete för att få ditt företag att synas när det räknas.</p>
+    <p class="eyebrow">Digital marknadsföring</p>
+    <h1>Syns när det <em>räknas.</em></h1>
+    <p class="sub">Ingenium Marketing hjälper företag att växa online med Google Ads, sociala medier och landningssidor som konverterar.</p>
     <div class="cta">
-      <a href="#kontakt" class="pill solid big">Bli vår första kund</a>
-      <small>Hör av dig så berättar vi hur vi skulle jobba med just ditt företag.</small>
+      <a href="#kontakt" class="btn">Kontakta oss</a>
+      <a href="#tjanster" class="link">Se vad vi gör</a>
     </div>
   </div>
-  <div class="scroll" aria-hidden="true">Scrolla</div>
 </header>
 
-<section id="arligt">
+<section class="statement">
   <div class="wrap">
-    <p class="eyebrow rv">Ärligt talat</p>
-    <h2 class="rv">Vi är nya. Det är en <em>fördel.</em></h2>
-    <div class="grid3">
-      <div class="glass rv"><span class="n">01</span><h3>Full uppmärksamhet</h3><p>Du pratar direkt med dem som gör jobbet. Inga kedjor av mellanhänder, ingen kö.</p></div>
-      <div class="glass rv" style="--d:.12s"><span class="n">02</span><h3>Inget att gömma sig bakom</h3><p>Vi har inga stora kundloggor att peka på. Därför får du se hur vi tänker innan du bestämmer dig.</p></div>
-      <div class="glass rv" style="--d:.24s"><span class="n">03</span><h3>Vi vill bevisa oss</h3><p>Varje uppdrag är chansen att bygga något vi är stolta över att visa upp. Det är ett starkt skäl att göra det riktigt bra.</p></div>
-    </div>
+    <p class="rv">Vi bygger kampanjer och sidor med ett enda mål: <span>att fler av dem som hittar dig</span> också hör av sig.</p>
   </div>
 </section>
 
-<section id="tjanster">
+<section id="tjanster" style="padding-top:40px">
   <div class="wrap">
     <p class="eyebrow rv">Vad vi gör</p>
-    <h2 class="rv">Tre sätt att få fler kunder.</h2>
+    <h2 class="rv">Tre sätt att få <em>fler kunder.</em></h2>
     <div class="rows">
       <div class="row rv"><span class="n">01</span><h3>Google Ads</h3><p>Vi hjälper företag att synas när kunderna faktiskt söker efter deras tjänster.</p></div>
       <div class="row rv"><span class="n">02</span><h3>Sociala medier</h3><p>Strategier och annonsering som når rätt människor och skapar nya kunder.</p></div>
@@ -207,7 +185,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--glow)}
 <section id="process">
   <div class="wrap">
     <p class="eyebrow rv">Så jobbar vi</p>
-    <h2 class="rv">Enkelt från start till resultat.</h2>
+    <h2 class="rv">Enkelt från start till <em>resultat.</em></h2>
     <div class="steps">
       <div class="step rv"><div class="big">1</div><h3>Vi lyssnar</h3><p>Vi går igenom dina mål och din målgrupp.</p></div>
       <div class="step rv" style="--d:.12s"><div class="big">2</div><h3>Vi bygger</h3><p>Vi tar fram en sida eller kampanj som är gjord för att konvertera.</p></div>
@@ -216,26 +194,13 @@ footer a{text-decoration:none}footer a:hover{color:var(--glow)}
   </div>
 </section>
 
-<section id="referenser">
-  <div class="wrap">
-    <p class="eyebrow rv">Referenser</p>
-    <h2 class="rv">Den här platsen är <em>ledig.</em></h2>
-    <div class="empty rv">
-      <p class="q">Här hamnar vårt allra första omdöme.</p>
-      <small>Kanske kommer det från dig.</small>
-      <a href="#kontakt" class="pill big">Bli först</a>
-    </div>
-  </div>
-</section>
-
 <section id="faq" class="faq" style="padding-top:20px">
   <div class="wrap">
     <div>
       <p class="eyebrow rv">FAQ</p>
-      <h2 class="rv">Vanliga frågor.</h2>
+      <h2 class="rv">Vanliga <em>frågor.</em></h2>
     </div>
     <div class="rv">
-      <details><summary>Har ni några referenser?</summary><p>Nej, inte än. Vi är nystartade och har inte hunnit samla några. Därför får du hellre se hur vi tänker och jobbar innan du bestämmer dig, och därför lägger vi lite extra kraft på varje uppdrag.</p></details>
       <details><summary>Hur lång tid tar det att få en hemsida?</summary><p>En enkel landningssida är oftast klar inom en till två veckor.</p></details>
       <details><summary>Vad kostar det?</summary><p>Det beror på omfattningen. Hör av dig så får du en offert.</p></details>
       <details><summary>Kan ni sköta annonseringen också?</summary><p>Ja, vi hjälper till med både Google Ads och sociala medier.</p></details>
@@ -247,8 +212,9 @@ footer a{text-decoration:none}footer a:hover{color:var(--glow)}
   <div class="wrap">
     <div class="panel rv">
       <div>
-        <h2>Bli vår första <em>kund.</em></h2>
-        <p class="lead">Fyll i formuläret så berättar vi hur vi skulle hjälpa ditt företag.</p>
+        <h2>Redo att <em>växa?</em></h2>
+        <p class="lead">Fyll i formuläret så berättar vi hur vi kan hjälpa ditt företag.</p>
+        <a class="link mail" href="mailto:info@ingeniummarketing.se">info@ingeniummarketing.se</a>
       </div>
       <form id="contact-form" novalidate>
         <label for="name">Namn</label>
@@ -260,7 +226,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--glow)}
         <label for="message">Meddelande</label>
         <textarea id="message" name="message" rows="4" placeholder="Berätta om ditt projekt"></textarea>
         <span class="error" id="message-error"></span>
-        <button type="submit" class="pill solid big">Skicka</button>
+        <button type="submit" class="btn">Skicka</button>
         <p id="form-message"></p>
       </form>
     </div>
@@ -269,19 +235,16 @@ footer a{text-decoration:none}footer a:hover{color:var(--glow)}
 
 <footer>
   <div class="wrap">
-    <div>© 2026 Ingenium Marketing<br>hej@digitalgrowth.se</div>
+    <div>© 2026 Ingenium Marketing<br><a href="mailto:info@ingeniummarketing.se">info@ingeniummarketing.se</a></div>
     <div class="flinks"><a href="#tjanster">Tjänster</a><a href="#faq">FAQ</a><a href="#kontakt">Kontakt</a></div>
   </div>
 </footer>
 
 <script>
 // Mobilmeny
-var toggle=document.getElementById("toggle"),links=document.getElementById("links"),
-    cta=document.getElementById("navcta"),ctaM=document.getElementById("navcta-m");
+var toggle=document.getElementById("toggle"),links=document.getElementById("links");
 toggle.addEventListener("click",function(){var o=links.classList.toggle("open");toggle.setAttribute("aria-expanded",o)});
 links.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){links.classList.remove("open")})});
-function sizeNav(){var m=window.innerWidth<=860;cta.style.display=m?"none":"";ctaM.style.display=m?"block":"none"}
-sizeNav();window.addEventListener("resize",sizeNav);
 
 // Toning vid scroll
 var rv=document.querySelectorAll(".rv");
