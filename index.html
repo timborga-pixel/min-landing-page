@@ -5,164 +5,179 @@
 <title>Ingenium Marketing</title>
 <meta name="description" content="Ingenium Marketing hjälper företag att växa online med Google Ads, sociala medier och landningssidor som konverterar.">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2236%22 fill=%22%234b3fe0%22/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2226%22 fill=%22%238f7d6a%22/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add("js")</script>
 <style>
-/* ===== TEMA: ändra färger och typsnitt här ===== */
+/* ===== TEMA: ändra färger här ===== */
 :root{
-  --bg:#f7f5f1; --ink:#14151a; --mut:#6b6e78; --line:rgba(20,21,26,.12);
-  --acc:#4b3fe0; --card:#ffffff;
-  --font:'Inter',Arial,sans-serif; --serif:'Instrument Serif',Georgia,serif;
+  --cream:#f3ebe0; --paper:#faf5ec; --ink:#3a322a; --mut:#6f6357; --taupe:#8f7d6a;
+  --line:rgba(58,50,42,.14); --on-taupe:#fbf6ee;
+  --font:'Inter',Arial,sans-serif;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-weight:300;font-size:18px;line-height:1.7;overflow-x:hidden}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--font);font-weight:300;font-size:18px;line-height:1.7;overflow-x:hidden}
 h1,h2,h3,p{margin:0}
-h1,h2,h3{font-weight:300;letter-spacing:-.035em;line-height:1.05}
-h2{font-size:clamp(2.3rem,5vw,3.8rem);max-width:16ch}
-em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--acc);letter-spacing:-.01em}
+h1,h2,h3{font-weight:400;letter-spacing:-.035em;line-height:1.08}
+h2{font-size:clamp(2.2rem,4.8vw,3.5rem)}
 a{color:inherit}
-.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
-section{padding:110px 0}
-.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);margin-bottom:22px;font-weight:400}
-.btn{display:inline-block;border:0;cursor:pointer;font:400 15px var(--font);text-decoration:none;background:var(--ink);color:var(--bg);padding:14px 28px;border-radius:100px;transition:transform .2s,background .2s}
-.btn:hover{background:var(--acc);transform:translateY(-2px)}
-.btn.sm{padding:10px 22px;font-size:14px}
-.link{font-size:15px;text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:2px;transition:color .2s,border-color .2s}
-.link:hover{color:var(--acc);border-color:var(--acc)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+section{padding:110px 0;text-align:center}
+.eyebrow{display:inline-block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:400;border:1px solid currentColor;border-radius:100px;padding:7px 20px;margin-bottom:28px;opacity:.85}
+.btn{display:inline-block;border:0;cursor:pointer;font:400 16px var(--font);text-decoration:none;background:var(--paper);color:var(--ink);padding:15px 32px;border-radius:14px;box-shadow:0 8px 28px rgba(58,50,42,.18);transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(58,50,42,.25)}
+.link{border-bottom:1px solid currentColor;text-decoration:none;padding-bottom:2px}
+
+/* ===== LAVALAMPA (rörlig bakgrund) ===== */
+.lava{position:absolute;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none}
+.lava i{position:absolute;border-radius:50%;filter:blur(60px);aspect-ratio:1}
+.l1{width:46%;left:-8%;top:32%;background:#e9dac5;opacity:.6;animation:m1 20s ease-in-out infinite alternate}
+.l2{width:40%;right:-8%;top:-12%;background:#b8a28a;opacity:.7;animation:m2 25s ease-in-out infinite alternate}
+.l3{width:36%;left:32%;bottom:-26%;background:#f5eadb;opacity:.7;animation:m3 18s ease-in-out infinite alternate}
+.l4{width:28%;right:16%;top:42%;background:#d9c4aa;opacity:.55;animation:m4 23s ease-in-out infinite alternate}
+@keyframes m1{to{transform:translate(55%,-38%) scale(1.3)}}
+@keyframes m2{to{transform:translate(-60%,48%) scale(.8)}}
+@keyframes m3{to{transform:translate(-70%,-22%) scale(1.25)}}
+@keyframes m4{to{transform:translate(-90%,30%) scale(1.4)}}
 
 /* ===== NAV ===== */
-nav{position:sticky;top:0;z-index:20;background:rgba(247,245,241,.8);backdrop-filter:blur(14px);border-bottom:1px solid transparent}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px;max-width:1280px}
-.logo{font-size:22px;font-weight:400;text-decoration:none;letter-spacing:-.03em}
-.links{display:flex;align-items:center;gap:34px}
-.links a:not(.btn){font-size:15px;text-decoration:none;color:var(--mut);transition:color .2s}
-.links a:not(.btn):hover{color:var(--ink)}
-.toggle{display:none;background:none;border:1px solid var(--line);border-radius:100px;padding:8px 18px;font:400 14px var(--font);color:var(--ink);cursor:pointer}
+nav{position:fixed;top:22px;left:0;right:0;z-index:30;display:flex;justify-content:center;padding:0 20px}
+.cap{position:relative;width:100%;max-width:1040px;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:10px 12px 10px 22px;background:rgba(250,245,236,.8);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.6);border-radius:100px;box-shadow:0 8px 30px rgba(58,50,42,.1)}
+.logo{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:400;text-decoration:none;letter-spacing:-.02em}
+.mark{width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,#c9b49b,#8f7d6a)}
+.links{display:flex;align-items:center;gap:30px}
+.links a{font-size:15px;text-decoration:none;color:var(--mut);transition:color .2s}
+.links a:hover{color:var(--ink)}
+.links .out{color:var(--ink);border:1px solid var(--taupe);border-radius:100px;padding:8px 22px}
+.links .out:hover{background:var(--taupe);color:var(--on-taupe)}
+.toggle{display:none;background:none;border:1px solid var(--taupe);border-radius:100px;padding:7px 18px;font:400 14px var(--font);color:var(--ink);cursor:pointer}
 
 /* ===== HERO ===== */
-.hero{position:relative;padding:110px 0 130px;overflow:hidden}
-.bg{position:absolute;inset:0;pointer-events:none}
-.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;animation:drift 20s ease-in-out infinite alternate}
-.b1{width:480px;height:480px;right:-60px;top:-80px;background:#d9d3ff}
-.b2{width:380px;height:380px;right:16%;top:150px;background:#ffdfcc;animation-delay:-6s}
-.b3{width:320px;height:320px;left:-100px;bottom:-120px;background:#d3efe4;animation-delay:-12s}
-.bg svg{position:absolute;right:-120px;top:-160px;width:760px;height:760px;opacity:.5}
-@keyframes drift{to{transform:translate(30px,-24px) scale(1.08)}}
-.hero .wrap{position:relative}
-.hero h1{font-size:clamp(3.4rem,10.5vw,8.6rem);font-weight:300;letter-spacing:-.05em;line-height:.98;max-width:9ch}
-.hero .sub{max-width:480px;color:var(--mut);font-size:20px;margin:40px 0 40px}
-.cta{display:flex;align-items:center;gap:30px;flex-wrap:wrap}
+.hero{position:relative;margin:14px 14px 0;border-radius:34px;overflow:hidden;color:var(--on-taupe);text-align:center;
+  padding:190px 0 230px;background:linear-gradient(180deg,#85735f 0%,#9a8874 48%,#bca893 100%)}
+.hero .wrap{position:relative;z-index:2}
+.glow{position:absolute;left:0;bottom:0;width:100%;height:58%;animation:sway 14s ease-in-out infinite alternate;transform-origin:bottom}
+@keyframes sway{to{transform:translateY(-6%) scaleY(1.12)}}
+.hero h1{font-size:clamp(3rem,8.4vw,6.6rem);letter-spacing:-.045em;margin:0 auto;max-width:12ch}
+.hero .sub{max-width:520px;margin:28px auto 40px;font-size:20px;color:#f6eee3}
+
+/* ===== TJÄNSTER (kort som överlappar hero) ===== */
+.cards{padding:0 0 40px;margin-top:-120px;position:relative;z-index:3}
+.cards .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:rgba(250,245,236,.94);border:1px solid rgba(255,255,255,.7);border-radius:22px;padding:34px 30px 38px;text-align:left;box-shadow:0 18px 50px rgba(58,50,42,.1);transition:transform .3s}
+.card:hover{transform:translateY(-6px)}
+.num{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:var(--taupe);color:var(--on-taupe);font-size:15px;font-weight:400;margin-bottom:22px}
+.card h3{font-size:1.4rem;margin-bottom:10px}
+.card p{color:var(--mut);font-size:16px}
 
 /* ===== STATEMENT ===== */
-.statement{padding:60px 0 100px}
-.statement p{font-size:clamp(1.7rem,3.8vw,3rem);line-height:1.25;letter-spacing:-.03em;max-width:24ch;max-width:30ch}
-.statement span{color:#a9abb4}
-
-/* ===== TJÄNSTER ===== */
-.rows{margin-top:56px;border-top:1px solid var(--line)}
-.row{display:grid;grid-template-columns:70px 1fr 1.3fr;gap:24px;align-items:baseline;padding:38px 0;border-bottom:1px solid var(--line);transition:padding-left .3s}
-.row:hover{padding-left:14px}
-.row .n{color:var(--acc);font-size:14px;letter-spacing:.14em}
-.row h3{font-size:clamp(1.7rem,3.2vw,2.4rem)}
-.row p{color:var(--mut);font-size:17px}
+.statement p{font-size:clamp(1.7rem,3.6vw,2.7rem);line-height:1.3;letter-spacing:-.03em;max-width:26ch;margin:0 auto}
+.statement span{color:#a99b8b}
 
 /* ===== PROCESS ===== */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:64px}
-.step{border-top:1px solid var(--ink);padding-top:24px}
-.step .big{font-family:var(--serif);font-style:italic;font-size:4.6rem;line-height:1;color:var(--acc);margin-bottom:18px}
-.step h3{font-size:1.6rem;margin-bottom:10px}
-.step p{color:var(--mut);font-size:16px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:64px}
+.step .num{margin:0 auto 22px;background:none;border:1px solid var(--taupe);color:var(--taupe)}
+.step h3{font-size:1.5rem;margin-bottom:10px}
+.step p{color:var(--mut);font-size:16px;max-width:28ch;margin:0 auto}
 
 /* ===== FAQ ===== */
-.faq .wrap{display:grid;grid-template-columns:1fr 1.5fr;gap:64px}
+.faq h2{margin-bottom:56px}
+.faqlist{max-width:740px;margin:0 auto;text-align:left}
 details{border-bottom:1px solid var(--line)}
 details:first-child{border-top:1px solid var(--line)}
-summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;font-size:1.2rem;font-weight:400}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;font-size:1.15rem;font-weight:400}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-size:1.8rem;font-weight:300;color:var(--acc);transition:transform .25s}
+summary::after{content:"+";font-size:1.7rem;font-weight:300;color:var(--taupe);transition:transform .25s}
 details[open] summary::after{transform:rotate(45deg)}
 details p{color:var(--mut);padding:0 0 26px;max-width:50ch;font-size:16px}
 
 /* ===== KONTAKT ===== */
-.contact{padding-top:40px}
-.panel{position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:56px;background:var(--card);border:1px solid var(--line);border-radius:32px;padding:64px 52px}
-.panel::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:#d9d3ff;filter:blur(80px);opacity:.5;left:-120px;bottom:-200px;pointer-events:none}
-.panel>*{position:relative}
-.panel h2{font-size:clamp(2.6rem,5.5vw,4.4rem);max-width:8ch}
-.panel .lead{color:var(--mut);margin-top:22px;max-width:30ch}
-.panel .mail{display:inline-block;margin-top:26px;font-size:16px}
-form{display:flex;flex-direction:column}
+.contact{padding:20px 14px 14px}
+.panel{position:relative;overflow:hidden;border-radius:34px;color:var(--on-taupe);padding:110px 24px;background:linear-gradient(180deg,#85735f 0%,#9a8874 55%,#b6a18c 100%)}
+.panel>*:not(.lava){position:relative;z-index:2}
+.panel h2{font-size:clamp(2.6rem,6vw,4.6rem)}
+.panel .lead{margin:20px auto 0;max-width:34ch;color:#f6eee3}
+.panel .mail{display:inline-block;margin-top:20px;font-size:16px}
+form{display:flex;flex-direction:column;text-align:left;max-width:520px;margin:48px auto 0;background:var(--paper);color:var(--ink);padding:36px 32px;border-radius:24px;box-shadow:0 20px 60px rgba(40,32,24,.25)}
 label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-bottom:8px;font-weight:400}
-input,textarea{font:300 16px var(--font);color:var(--ink);padding:15px 18px;border:1px solid var(--line);border-radius:14px;background:var(--bg);margin-bottom:6px}
+input,textarea{font:300 16px var(--font);color:var(--ink);padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:#fff;margin-bottom:6px}
 textarea{resize:vertical}
-input:focus,textarea:focus{outline:none;border-color:var(--acc);background:#fff}
-input.invalid,textarea.invalid{border-color:#d93025}
-.error{color:#c5221f;font-size:14px;min-height:22px;margin-bottom:8px}
-form .btn{align-self:flex-start;margin-top:6px}
-#form-message{margin-top:16px;font-size:16px;color:var(--acc)}
+input:focus,textarea:focus{outline:none;border-color:var(--taupe)}
+input.invalid,textarea.invalid{border-color:#c5221f}
+.error{color:#b3261e;font-size:14px;min-height:22px;margin-bottom:8px}
+form .btn{background:var(--taupe);color:var(--on-taupe);box-shadow:none;align-self:flex-start;margin-top:6px}
+form .btn:hover{background:#7a6a58}
+#form-message{margin-top:16px;font-size:16px;color:var(--taupe)}
 
 /* ===== FOOTER ===== */
-footer{border-top:1px solid var(--line);padding:44px 0;font-size:15px;color:var(--mut)}
-footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.flinks{display:flex;gap:26px}
-footer a{text-decoration:none}footer a:hover{color:var(--acc)}
+footer{padding:56px 0;text-align:center;font-size:15px;color:var(--mut)}
+.flinks{display:flex;justify-content:center;gap:28px;margin-top:16px}
+footer a{text-decoration:none}footer a:hover{color:var(--ink)}
 
 /* ===== SCROLL-ANIMATION ===== */
 .js .rv{opacity:0;transform:translateY(30px);transition:opacity .9s ease var(--d,0s),transform .9s cubic-bezier(.16,1,.3,1) var(--d,0s)}
 .js .rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.blob{animation:none}}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.lava i,.glow{animation:none}}
 
 /* ===== MOBIL ===== */
 @media (max-width:860px){
   section{padding:76px 0}
-  .hero{padding:70px 0 90px}
+  .hero{margin:10px 10px 0;border-radius:26px;padding:150px 0 190px}
   .toggle{display:block}
-  .links{display:none;position:absolute;top:74px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:18px;padding:24px 28px 28px;background:var(--bg);border-bottom:1px solid var(--line)}
+  .links{display:none;position:absolute;top:calc(100% + 10px);left:0;right:0;flex-direction:column;align-items:stretch;text-align:center;gap:14px;padding:22px;background:rgba(250,245,236,.97);border-radius:26px;box-shadow:0 12px 36px rgba(58,50,42,.15)}
   .links.open{display:flex}
-  .steps,.panel,.faq .wrap{grid-template-columns:1fr}
-  .row{grid-template-columns:44px 1fr;gap:6px 14px}
-  .row p{grid-column:2}
-  .faq .wrap{gap:30px}
-  .panel{padding:40px 24px;border-radius:26px}
-  .b1{width:320px;height:320px}.bg svg{width:520px;height:520px}
+  .cards{margin-top:-90px}
+  .cards .wrap,.steps{grid-template-columns:1fr}
+  .contact{padding:10px}
+  .panel{padding:80px 18px;border-radius:26px}
+  form{padding:28px 22px}
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="wrap">
-    <a href="#" class="logo">Ingenium</a>
+  <div class="cap">
+    <a href="#" class="logo"><span class="mark"></span>Ingenium</a>
     <button class="toggle" id="toggle" aria-label="Öppna meny" aria-expanded="false">Meny</button>
     <div class="links" id="links">
       <a href="#tjanster">Tjänster</a>
       <a href="#process">Så jobbar vi</a>
       <a href="#faq">FAQ</a>
-      <a href="#kontakt" class="btn sm">Kontakta oss</a>
+      <a href="#kontakt" class="out">Kontakta oss</a>
     </div>
   </div>
 </nav>
 
 <header class="hero">
-  <div class="bg" aria-hidden="true">
-    <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
-    <svg viewBox="0 0 760 760" fill="none" stroke="#14151a" stroke-opacity=".12">
-      <circle cx="380" cy="380" r="120"/><circle cx="380" cy="380" r="200"/><circle cx="380" cy="380" r="280"/><circle cx="380" cy="380" r="360"/>
-    </svg>
-  </div>
+  <div class="lava" aria-hidden="true"><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i></div>
+  <svg class="glow" viewBox="0 0 1200 420" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <filter id="bl" x="-5%" y="-30%" width="110%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
+      <linearGradient id="fl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".3"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+      <linearGradient id="st" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".15"/><stop offset=".5" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity=".8"/></linearGradient>
+    </defs>
+    <path d="M-50 190 C250 250 430 380 620 380 C850 380 1000 250 1250 40 L1250 420 L-50 420Z" fill="url(#fl)"/>
+    <path d="M-50 190 C250 250 430 380 620 380 C850 380 1000 250 1250 40" fill="none" stroke="url(#st)" stroke-width="10" filter="url(#bl)" vector-effect="non-scaling-stroke"/>
+    <path d="M-50 190 C250 250 430 380 620 380 C850 380 1000 250 1250 40" fill="none" stroke="url(#st)" stroke-width="2" vector-effect="non-scaling-stroke"/>
+  </svg>
   <div class="wrap">
-    <p class="eyebrow">Digital marknadsföring</p>
-    <h1>Syns när det <em>räknas.</em></h1>
+    <span class="eyebrow">Digital marknadsföring</span>
+    <h1>Syns när det räknas.</h1>
     <p class="sub">Ingenium Marketing hjälper företag att växa online med Google Ads, sociala medier och landningssidor som konverterar.</p>
-    <div class="cta">
-      <a href="#kontakt" class="btn">Kontakta oss</a>
-      <a href="#tjanster" class="link">Se vad vi gör</a>
-    </div>
+    <a href="#kontakt" class="btn">Kontakta oss</a>
   </div>
 </header>
+
+<div id="tjanster" class="cards">
+  <div class="wrap">
+    <div class="card rv"><div class="num">01</div><h3>Google Ads</h3><p>Vi hjälper företag att synas när kunderna faktiskt söker efter deras tjänster.</p></div>
+    <div class="card rv" style="--d:.12s"><div class="num">02</div><h3>Sociala medier</h3><p>Strategier och annonsering som når rätt människor och skapar nya kunder.</p></div>
+    <div class="card rv" style="--d:.24s"><div class="num">03</div><h3>Landningssidor</h3><p>Snabba och snygga sidor byggda för att omvandla besökare till kunder.</p></div>
+  </div>
+</div>
 
 <section class="statement">
   <div class="wrap">
@@ -170,37 +185,21 @@ footer a{text-decoration:none}footer a:hover{color:var(--acc)}
   </div>
 </section>
 
-<section id="tjanster" style="padding-top:40px">
+<section id="process" style="padding-top:20px">
   <div class="wrap">
-    <p class="eyebrow rv">Vad vi gör</p>
-    <h2 class="rv">Tre sätt att få <em>fler kunder.</em></h2>
-    <div class="rows">
-      <div class="row rv"><span class="n">01</span><h3>Google Ads</h3><p>Vi hjälper företag att synas när kunderna faktiskt söker efter deras tjänster.</p></div>
-      <div class="row rv"><span class="n">02</span><h3>Sociala medier</h3><p>Strategier och annonsering som når rätt människor och skapar nya kunder.</p></div>
-      <div class="row rv"><span class="n">03</span><h3>Landningssidor</h3><p>Snabba och snygga sidor byggda för att omvandla besökare till kunder.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="process">
-  <div class="wrap">
-    <p class="eyebrow rv">Så jobbar vi</p>
-    <h2 class="rv">Enkelt från start till <em>resultat.</em></h2>
+    <h2 class="rv">Enkelt från start till resultat.</h2>
     <div class="steps">
-      <div class="step rv"><div class="big">1</div><h3>Vi lyssnar</h3><p>Vi går igenom dina mål och din målgrupp.</p></div>
-      <div class="step rv" style="--d:.12s"><div class="big">2</div><h3>Vi bygger</h3><p>Vi tar fram en sida eller kampanj som är gjord för att konvertera.</p></div>
-      <div class="step rv" style="--d:.24s"><div class="big">3</div><h3>Vi optimerar</h3><p>Vi mäter resultatet och förbättrar löpande.</p></div>
+      <div class="step rv"><div class="num">1</div><h3>Vi lyssnar</h3><p>Vi går igenom dina mål och din målgrupp.</p></div>
+      <div class="step rv" style="--d:.12s"><div class="num">2</div><h3>Vi bygger</h3><p>Vi tar fram en sida eller kampanj som är gjord för att konvertera.</p></div>
+      <div class="step rv" style="--d:.24s"><div class="num">3</div><h3>Vi optimerar</h3><p>Vi mäter resultatet och förbättrar löpande.</p></div>
     </div>
   </div>
 </section>
 
 <section id="faq" class="faq" style="padding-top:20px">
   <div class="wrap">
-    <div>
-      <p class="eyebrow rv">FAQ</p>
-      <h2 class="rv">Vanliga <em>frågor.</em></h2>
-    </div>
-    <div class="rv">
+    <h2 class="rv">Vanliga frågor.</h2>
+    <div class="faqlist rv">
       <details><summary>Hur lång tid tar det att få en hemsida?</summary><p>En enkel landningssida är oftast klar inom en till två veckor.</p></details>
       <details><summary>Vad kostar det?</summary><p>Det beror på omfattningen. Hör av dig så får du en offert.</p></details>
       <details><summary>Kan ni sköta annonseringen också?</summary><p>Ja, vi hjälper till med både Google Ads och sociala medier.</p></details>
@@ -209,33 +208,30 @@ footer a{text-decoration:none}footer a:hover{color:var(--acc)}
 </section>
 
 <section id="kontakt" class="contact">
-  <div class="wrap">
-    <div class="panel rv">
-      <div>
-        <h2>Redo att <em>växa?</em></h2>
-        <p class="lead">Fyll i formuläret så berättar vi hur vi kan hjälpa ditt företag.</p>
-        <a class="link mail" href="mailto:info@ingeniummarketing.se">info@ingeniummarketing.se</a>
-      </div>
-      <form id="contact-form" novalidate>
-        <label for="name">Namn</label>
-        <input type="text" id="name" name="name" placeholder="Ditt namn">
-        <span class="error" id="name-error"></span>
-        <label for="email">E-post</label>
-        <input type="email" id="email" name="email" placeholder="din@epost.se">
-        <span class="error" id="email-error"></span>
-        <label for="message">Meddelande</label>
-        <textarea id="message" name="message" rows="4" placeholder="Berätta om ditt projekt"></textarea>
-        <span class="error" id="message-error"></span>
-        <button type="submit" class="btn">Skicka</button>
-        <p id="form-message"></p>
-      </form>
-    </div>
+  <div class="panel">
+    <div class="lava" aria-hidden="true"><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i></div>
+    <h2>Redo att växa?</h2>
+    <p class="lead">Fyll i formuläret så berättar vi hur vi kan hjälpa ditt företag.</p>
+    <a class="link mail" href="mailto:info@ingeniummarketing.se">info@ingeniummarketing.se</a>
+    <form id="contact-form" novalidate>
+      <label for="name">Namn</label>
+      <input type="text" id="name" name="name" placeholder="Ditt namn">
+      <span class="error" id="name-error"></span>
+      <label for="email">E-post</label>
+      <input type="email" id="email" name="email" placeholder="din@epost.se">
+      <span class="error" id="email-error"></span>
+      <label for="message">Meddelande</label>
+      <textarea id="message" name="message" rows="4" placeholder="Berätta om ditt projekt"></textarea>
+      <span class="error" id="message-error"></span>
+      <button type="submit" class="btn">Skicka</button>
+      <p id="form-message"></p>
+    </form>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div>© 2026 Ingenium Marketing<br><a href="mailto:info@ingeniummarketing.se">info@ingeniummarketing.se</a></div>
+    <div>© 2026 Ingenium Marketing · <a href="mailto:info@ingeniummarketing.se">info@ingeniummarketing.se</a></div>
     <div class="flinks"><a href="#tjanster">Tjänster</a><a href="#faq">FAQ</a><a href="#kontakt">Kontakt</a></div>
   </div>
 </footer>
